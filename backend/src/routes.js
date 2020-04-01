@@ -32,7 +32,7 @@ routes.post('/incidents', celebrate({
     [Segments.BODY]: Joi.object().keys({
         title: Joi.string().required().min(5),
         description: Joi.string().required().min(5),
-        value: Joi.number().required().min(0)
+        value: Joi.number().required()
     }),
     [Segments.HEADERS]: Joi.object({
         authorization: Joi.string().required()
@@ -64,7 +64,7 @@ routes.post('/ongs', celebrate({
     [Segments.BODY]: Joi.object().keys({
         name: Joi.string().required(),
         email: Joi.string().email().required(),
-        whatsapp: Joi.number().required().min(10).max(11),
+        whatsapp: Joi.string().required().min(10).max(11),
         city: Joi.string().required(),
         uf: Joi.string().required().length(2)
     })
